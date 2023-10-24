@@ -1,0 +1,51 @@
+<registerWindow>:
+    usernames:uname
+    password:pass_word
+    number:p_number
+    address:address
+    Screen:
+
+        MDLabel:
+            text: "Welcome"
+            font_size: "48dp"
+            halign: "center"
+            color: "#FF5623"
+            pos_hint: {"center_y": .8}
+        MDTextField:
+            id:uname
+            hint_text:"Username"
+            icon_right:"account"
+            font_size:"20dp"
+            size_hint_x:.85
+            pos_hint:{"center_x":.5,"center_y":.65}
+        MDTextField:
+            hint_text:"password"
+            id:pass_word
+            password:True
+            icon_right:"eye-off"
+            font_size:"20dp"
+            size_hint_x:.85
+            pos_hint:{"center_x":.5,"center_y":.5}
+        MDTextField:
+            hint_text:"phone number"
+            id:p_number
+            password:True
+            font_size:"20dp"
+            size_hint_x:.85
+            pos_hint:{"center_x":.5,"center_y":.25}
+        MDTextField:
+            hint_text:"address"
+            id:address
+            password:True
+            icon_right:"eye-off"
+            font_size:"20dp"
+            size_hint_x:.85
+            pos_hint:{"center_x":.5,"center_y":.35}
+        MDFlatButton:
+            text: "SIGN IN"
+            font_size:"22dp"
+            size_hint_x:1
+            md_bg_color:"#ff5623"
+            pos_hint:{"center_x":.5,"center_y":.1}
+            spacing:"5dp"
+            on_release:root.perform_register()

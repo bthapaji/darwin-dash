@@ -1,0 +1,28 @@
+<cardDetail>:
+    user: user
+    user_info: user_info
+    Screen:
+
+    ScrollView:
+        MDList:
+            one_line: True
+            IconLeftWidget:
+                icon: "mdi:account-circle"
+            MDLabel:
+                text: user.display_name
+            MDLabel:
+                text: user.email
+
+            MDListDivider:
+
+            OneLineAvatarIconListItem:
+                text: "Address"
+                icon: "mdi:home-variant"
+                secondary_text: self.user_info["address"]
+
+            MDListDivider:
+
+            OneLineAvatarIconListItem:
+                text: "Phone Number"
+                icon: "mdi:phone"
+                secondary_text: self.user_info["phone_number"]

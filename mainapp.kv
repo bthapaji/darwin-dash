@@ -1,0 +1,179 @@
+<loginWindow>:
+    name:"login"
+    email : email 
+    pwd : pwd 
+    FloatLayout: 
+        size: root.width, root.height 
+        Label: 
+            text : "EMAIL: "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x":0.25, "top":0.9} 
+        TextInput: 
+            id : email 
+            multiline :False
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.9} 
+        Label: 
+            text : "PASSWORD: "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.25, "top" : 0.7} 
+        TextInput: 
+            id : pwd 
+            multiline :False
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.7} 
+
+        Button: 
+            text : "LOGIN"
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.2} 
+            on_release:  
+                root.perform_login()
+                root.manager.transition.direction = "up"
+
+
+<dashboardWindow>:
+    name:"dashboard_screen"
+    FloatLayout:
+        Label:
+            id:money
+            text : root.u_amount
+            size_hint : 0.2, 0.1
+            pos_hint : {"x":0.25, "top":0.9}
+        Label:
+            id:card_numb
+            text : root.u_cardnumber
+            size_hint : 0.2, 0.1
+            pos_hint : {"x":0.25, "y":0.7}
+        Button:
+            text:"Add card"
+            user_font_size: "50sp"
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.2}
+            on_release:
+                root.perform_card()
+                root.manager.transition.direction = "up"
+        Button:
+            text:"Bank card"
+            user_font_size: "50sp"
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.5}
+            on_release:
+                root.add_bank()
+                root.manager.transition.direction = "up"
+        Button:
+            text:"Top up"
+            user_font_size: "50sp"
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.7}
+            on_release:
+                root.bank_topup()
+                root.manager.transition.direction = "up"
+
+
+
+<carddetailWindow>:
+    name:"card_details"
+    u_cardnumber:card_number
+    u_pinnumber:pin_number
+    FloatLayout:
+        Label:
+            text : "Card number "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x":0.25, "top":0.9}
+        TextInput:
+            id:card_number
+            multiline :False
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.9}
+        Label:
+            text : "Pin number "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.25, "top" : 0.7}
+        TextInput:
+            id : pin_number
+            multiline :False
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.7}
+        Button:
+            text : "Add Card"
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.2}
+            on_release:
+                root.card_detail()
+                root.manager.transition.direction = "up"
+
+
+<bankdetailWindow>:
+    name:"bank_card"
+    u_bankcard:bank_number
+    u_expiry:expiry
+    u_cvv:cvv
+    FloatLayout:
+        Label:
+            text : "Card number "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x":0.25, "top":0.9}
+        TextInput:
+            id:bank_number
+            multiline :False
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.9}
+        Label:
+            text : "Expiry date "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.25, "top" : 0.7}
+        TextInput:
+            id : expiry
+            multiline :False
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.7}
+        Label:
+            text : "CVV "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.25, "top" : 0.5}
+        TextInput:
+            id : cvv
+            multiline :False
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.5}
+
+        Button:
+            text : "Add Card"
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.2}
+            on_release:
+                root.bank_detail()
+                root.manager.transition.direction = "up"
+
+
+<banktransactionWindow>:
+    name:"bank_trans"
+    u_bankcvv:bank_cvv
+    u_amounts:amount
+    FloatLayout:
+        Label:
+            text : "CVV number "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x":0.25, "top":0.9}
+        TextInput:
+            id:bank_cvv
+            multiline :False
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.9}
+        Label:
+            text : "amount "
+            size_hint : 0.2, 0.1
+            pos_hint : {"x" : 0.25, "top" : 0.7}
+        TextInput:
+            id : amount
+            multiline :False
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.45, "top" : 0.7}
+        Button:
+            text : "Make transaction"
+            size_hint : 0.3, 0.1
+            pos_hint : {"x" : 0.39, "top" : 0.2}
+            on_release:
+                root.bank_trans()
+                root.manager.transition.direction = "up"
